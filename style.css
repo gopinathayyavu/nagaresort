@@ -662,3 +662,87 @@ footer {
 .eco-commitment .btn-outline:hover {
     background: rgba(255, 255, 255, 0.2);
 }
+
+/* Booking Page */
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.booking-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 32px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.booking-form h2,
+.booking-form h3 {
+    color: #2f5d3a;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd2bc;
+    border-radius: 28px;
+    font-family: inherit;
+    background: #fefaf0;
+}
+
+.booking-summary {
+    background: #fef8ec;
+    padding: 1.5rem;
+    border-radius: 32px;
+    position: sticky;
+    top: 100px;
+}
+
+.summary-card {
+    margin-top: 1rem;
+}
+
+.summary-card hr {
+    margin: 1rem 0;
+    border-color: #e2d5bd;
+}
+
+.book-submit {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-summary {
+        position: static;
+        margin-top: 1rem;
+    }
+}
