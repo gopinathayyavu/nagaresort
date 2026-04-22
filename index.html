@@ -23,39 +23,240 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #fefaf0;
-            /* bright, creamy natural background */
             color: #2c2b26;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            /* padding-top to clear fixed navbar (height ~80px) */
+            padding-top: 80px;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        .logo,
-        .font-serif {
-            font-family: 'Playfair Display', serif;
+        /* Adjust hero height to account for body padding */
+        .hero {
+            min-height: calc(100vh - 80px);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
         }
 
-        /* custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* ----- Hero Carousel Styles ----- */
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
         }
 
-        ::-webkit-scrollbar-track {
-            background: #e7dfcf;
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            z-index: 1;
         }
 
-        ::-webkit-scrollbar-thumb {
+        .slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        /* gradient overlay for readability (same warm tone as original) */
+        .slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 248, 225, 0.4), rgba(230, 245, 220, 0.5));
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 90%;
+            padding: 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #1f3b2c;
+            text-shadow: 0 2px 12px rgba(255, 255, 210, 0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin: 1rem 0 2rem;
+            font-weight: 500;
+            color: #2c4b32;
+        }
+
+        /* slider navigation arrows */
+        .slider-prev,
+        .slider-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-prev {
+            left: 20px;
+        }
+
+        .slider-next {
+            right: 20px;
+        }
+
+        .slider-prev:hover,
+        .slider-next:hover {
             background: #b8860b;
-            border-radius: 10px;
+            color: #2c2b26;
         }
 
-        /* glassmorphism navbar - light version */
+        .slider-dots {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 20;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 210, 0.7);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+        }
+
+        .dot.active {
+            background-color: #b8860b;
+            transform: scale(1.2);
+            box-shadow: 0 0 8px #d4af37;
+        }
+
+        /* scroll indicator stays above slider */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            animation: bounce 2s infinite;
+            color: #b8860b;
+            z-index: 15;
+            background: transparent;
+            text-shadow: 0 0 4px rgba(255, 255, 200, 0.5);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(12px);
+            }
+        }
+
+        /* ----- INFO STRIP (small black bar below navbar) ----- */
+        .info-strip {
+            background-color: #0a0c0a;
+            color: #f5efdf;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 6px 5%;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.3);
+            gap: 8px;
+            position: relative;
+            z-index: 999;
+        }
+
+        .strip-address i,
+        .strip-phones i {
+            margin-right: 6px;
+            color: #d4af37;
+            font-size: 11px;
+        }
+
+        .strip-address,
+        .strip-phones {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .strip-phones span {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 700px) {
+            .info-strip {
+                flex-direction: column;
+                text-align: center;
+                padding: 8px 5%;
+                gap: 5px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .slider-prev,
+            .slider-next {
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* navbar glass (fixed) */
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             z-index: 1000;
             padding: 1.2rem 5%;
@@ -150,61 +351,6 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section - Kodaikanal bright mist */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(255, 248, 225, 0.35), rgba(230, 245, 220, 0.45)), url('https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #1f3b2c;
-            text-shadow: 0 2px 12px rgba(255, 255, 210, 0.6);
-        }
-
-        .hero-content p {
-            font-size: 1.4rem;
-            margin: 1rem 0 2rem;
-            font-weight: 500;
-            color: #2c4b32;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.8rem;
-            animation: bounce 2s infinite;
-            color: #b8860b;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-
-            50% {
-                transform: translateX(-50%) translateY(12px);
-            }
-        }
-
-        /* sections */
         section {
             padding: 80px 5%;
         }
@@ -231,7 +377,6 @@
             margin: 12px auto 0;
         }
 
-        /* about split - bright */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -262,7 +407,6 @@
             transform: scale(1.02);
         }
 
-        /* rooms cards - bright glass */
         .rooms-grid {
             display: flex;
             flex-wrap: wrap;
@@ -343,7 +487,6 @@
             color: white;
         }
 
-        /* amenities */
         .amenities-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -357,13 +500,6 @@
             margin-bottom: 1rem;
         }
 
-        .amenity-item h4 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #3e5e3a;
-        }
-
-        /* gallery masonry */
         .gallery-masonry {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -388,7 +524,6 @@
             transform: scale(1.08);
         }
 
-        /* parallax experience - bright mist */
         .parallax-exp {
             background-attachment: fixed;
             background-position: center;
@@ -414,7 +549,6 @@
             padding: 2rem;
             width: 260px;
             transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
         }
 
         .exp-card i {
@@ -428,7 +562,6 @@
             color: #2f5d3a;
         }
 
-        /* testimonial slider */
         .testimonial-slider {
             max-width: 800px;
             margin: auto;
@@ -451,12 +584,6 @@
             margin: 0 2px;
         }
 
-        .testimonial-text {
-            font-style: italic;
-            margin: 1rem 0;
-            color: #3e4436;
-        }
-
         .slider-controls {
             display: flex;
             justify-content: center;
@@ -474,14 +601,12 @@
             color: white;
         }
 
-        /* CTA bright */
         .cta-section {
             background: linear-gradient(135deg, #eef5e4, #fef6e6);
             text-align: center;
             border-radius: 48px;
             margin: 40px 5%;
             padding: 70px 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
             border: 1px solid #f0e2cc;
         }
 
@@ -490,7 +615,6 @@
             color: #2f5d3a;
         }
 
-        /* footer */
         footer {
             background: #e5e0cf;
             padding: 50px 5% 30px;
@@ -528,7 +652,6 @@
             color: #6b5a3e;
         }
 
-        /* responsive */
         @media (max-width: 900px) {
             .nav-links {
                 position: fixed;
@@ -588,20 +711,42 @@
 </head>
 
 <body>
+
+    <!-- Fixed Navbar -->
     <nav class="navbar" id="navbar">
+        <!-- <img src="/assets/img/resort-logo.png" alt=""> -->
         <div class="logo">NAGA <span>RESORT</span></div>
         <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="rooms.html">Rooms</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="book.html">Book Now</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#book">Book Now</a></li>
         </ul>
     </nav>
 
+    <!-- Small black info strip below navbar: address left, mobiles right -->
+    <div class="info-strip">
+        <div class="strip-address">
+            <i class="fas fa-map-marker-alt"></i> 9/20 VGP Compound, Swedish Settlement Road, Kodaikanal - 624103
+        </div>
+        <div class="strip-phones">
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 95141 35704</span>
+            <span>|</span>
+            <span>+91 94433 69731</span>
+            <span>|</span>
+            <span>+91 98409 62645</span>
+        </div>
+    </div>
+
+    <!-- Hero with carousel -->
     <section id="home" class="hero">
+        <div class="hero-slider" id="heroSlider">
+            <!-- slides will be populated via js or static: we generate with js for cleaner control -->
+        </div>
         <div class="hero-content">
             <h1>PUGAL HOLIDAYS</h1>
             <p>Escape into Nature. Experience Luxury.</p>
@@ -613,8 +758,13 @@
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
         </div>
+        <!-- slider controls -->
+        <button class="slider-prev" id="prevSlideBtn"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-next" id="nextSlideBtn"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-dots" id="sliderDots"></div>
     </section>
 
+    <!-- rest of sections (about, rooms, etc) unchanged except minor ID consistency -->
     <section id="about" class="container hidden">
         <div class="about-grid">
             <div class="about-text">
@@ -626,8 +776,7 @@
                     songs, breathe in eucalyptus-scented air, and let the Western Ghats heal your soul.</p>
             </div>
             <div class="about-img">
-                <img src="https://images.pexels.com/photos/258192/pexels-photo-258192.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Kodaikanal valley view" loading="lazy">
+                <img src="assets/img/resort-img-1.jpeg" alt="Kodaikanal valley view" loading="lazy">
             </div>
         </div>
     </section>
@@ -639,10 +788,21 @@
                 <img src="https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=600"
                     alt="Deluxe Room" loading="lazy">
                 <div class="room-info">
-                    <h3>Deluxe Room</h3>
+                    <h3>Deluxe Rooms</h3>
                     <div class="price">₹8,500<span style="font-size:1rem;"> / night</span></div>
                     <div class="features"><i class="fas fa-wifi"></i> WiFi <i class="fas fa-mountain"></i> Valley View
-                        <i class="fas fa-coffee"></i> Tea Maker</div>
+                        <i class="fas fa-coffee"></i> Tea Maker
+                    </div>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="assets/img/wooden.jpg" alt="Wooden Rooms" loading="lazy">
+                <div class="room-info">
+                    <h3>Wooden Rooms</h3>
+                    <div class="price">₹6,500<span style="font-size:1rem;"> / night</span></div>
+                    <div class="features"><i class="fas fa-bath"></i> Jacuzzi <i class="fas fa-fire"></i> Private
+                        Balcony <i class="fas fa-champagne-glasses"></i> Minibar</div>
                     <button class="btn-view">View Details</button>
                 </div>
             </div>
@@ -650,7 +810,7 @@
                 <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600"
                     alt="Suite Room" loading="lazy">
                 <div class="room-info">
-                    <h3>Suite Room</h3>
+                    <h3>Suite Rooms</h3>
                     <div class="price">₹14,500<span style="font-size:1rem;"> / night</span></div>
                     <div class="features"><i class="fas fa-bath"></i> Jacuzzi <i class="fas fa-fire"></i> Private
                         Balcony <i class="fas fa-champagne-glasses"></i> Minibar</div>
@@ -661,7 +821,7 @@
     </section>
 
     <section id="amenities" class="container hidden">
-        <h2 class="section-title">Premium Amenities</h2>
+        <h2 class="section-title">Our Amenities</h2>
         <div class="amenities-grid">
             <div class="amenity-item"><i class="fas fa-wifi"></i>
                 <h4>Free WiFi</h4>
@@ -675,34 +835,27 @@
             <div class="amenity-item"><i class="fas fa-tree"></i>
                 <h4>Nature View</h4>
             </div>
-            <div class="amenity-item"><i class="fas fa-fire"></i>
-                <h4>Bonfire</h4>
-            </div>
             <div class="amenity-item"><i class="fas fa-utensils"></i>
-                <h4>Restaurant</h4>
+                <h4>Home Foods</h4>
             </div>
         </div>
     </section>
 
     <section id="gallery" class="container hidden">
-        <h2 class="section-title">Moments at Naga</h2>
+        <h2 class="section-title">Gallery</h2>
         <div class="gallery-masonry">
-            <a href="https://images.pexels.com/photos/1493403/pexels-photo-1493403.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                data-lightbox="resort-gallery" class="gallery-item"><img
-                    src="https://images.pexels.com/photos/1493403/pexels-photo-1493403.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="Kodaikanal lake view" loading="lazy"></a>
-            <a href="https://images.pexels.com/photos/1218933/pexels-photo-1218933.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                data-lightbox="resort-gallery" class="gallery-item"><img
-                    src="https://images.pexels.com/photos/1218933/pexels-photo-1218933.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="Misty forest path" loading="lazy"></a>
-            <a href="https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                data-lightbox="resort-gallery" class="gallery-item"><img
-                    src="https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="Resort cottage" loading="lazy"></a>
-            <a href="https://images.pexels.com/photos/6646927/pexels-photo-6646927.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                data-lightbox="resort-gallery" class="gallery-item"><img
-                    src="https://images.pexels.com/photos/6646927/pexels-photo-6646927.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="Bonfire night" loading="lazy"></a>
+            <a href="/assets/img/resort-1.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="/assets/img/resort-1.jpeg" alt="Resort exterior view" loading="lazy"></a>
+            <a href="/assets/img/resort-2.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="/assets/img/resort-2.jpeg" alt="Kodaikanal lake view" loading="lazy"></a>
+            <a href="/assets/img/resort-3.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="/assets/img/resort-3.jpeg" alt="Misty forest path" loading="lazy"></a>
+            <a href="/assets/img/resort-4.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="/assets/img/resort-4.jpeg" alt="Resort cottage" loading="lazy"></a>
+            <a href="/assets/img/resort-5.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="/assets/img/resort-5.jpeg" alt="Bonfire night" loading="lazy"></a>
+            <a href="/assets/img/resort-6.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="/assets/img/resort-6.jpeg" alt="Sunset view" loading="lazy"></a>
         </div>
     </section>
 
@@ -748,14 +901,12 @@
                     recommend Suite room!"</p>
                 <h4>— Sneha & Vikram</h4>
             </div>
-            <div class="slider-controls">
-                <button id="prevSlide"><i class="fas fa-chevron-left"></i> Prev</button>
-                <button id="nextSlide">Next <i class="fas fa-chevron-right"></i></button>
-            </div>
+            <div class="slider-controls"><button id="prevSlide"><i class="fas fa-chevron-left"></i> Prev</button><button
+                    id="nextSlide">Next <i class="fas fa-chevron-right"></i></button></div>
         </div>
     </section>
 
-    <div class="cta-section hidden">
+    <div class="cta-section hidden" id="book">
         <h2>Book Your Stay Today</h2>
         <p style="margin:1rem 0; color:#5b6e4a;">Limited luxury cottages — Reserve now for exclusive offers.</p>
         <button class="btn-gold" id="reserveNowBtn">Reserve Now</button>
@@ -765,14 +916,14 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Naga Resort</h4>
-                <p>Kodaikanal, Tamil Nadu<br>Near Coaker's Walk, 624101</p>
+                <p>PUGAL HOLIDAYS</p>
+                <p>9/20 VGP Compound, Swedish Settlement Road, Kodaikanal - 624103</p>
             </div>
             <div class="footer-col">
                 <h4>Contact</h4>
-                <p><i class="fas fa-phone-alt"></i> +91 95141 35704<br></p>
-                <p><i class="fas fa-phone-alt"></i> +91 94433 69731<br></p>
-                <p><i class="fas fa-phone-alt"></i> +91 98409 62645<br>
-                <i class="fas fa-envelope"></i> nagaresort@gmail.com</p>
+                <p><i class="fas fa-phone-alt"></i> +91 95141 35704<br><i class="fas fa-phone-alt"></i> +91 94433
+                    69731<br><i class="fas fa-phone-alt"></i> +91 98409 62645<br><i class="fas fa-envelope"></i>
+                    nagaresort@gmail.com</p>
             </div>
             <div class="footer-col">
                 <h4>Follow Us</h4>
@@ -785,7 +936,90 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script>
-        // Navbar scroll effect
+        // ----- IMAGE CAROUSEL for Hero -----
+        const images = [
+            "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/1493403/pexels-photo-1493403.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/258192/pexels-photo-258192.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        ];
+        let currentSlide = 0;
+        let slideInterval;
+        const sliderContainer = document.getElementById('heroSlider');
+        const dotsContainer = document.getElementById('sliderDots');
+
+        // Build slides and dots
+        function buildCarousel() {
+            sliderContainer.innerHTML = '';
+            dotsContainer.innerHTML = '';
+            images.forEach((img, idx) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.classList.add('slide');
+                if (idx === 0) slideDiv.classList.add('active');
+                slideDiv.style.backgroundImage = `url('${img}')`;
+                sliderContainer.appendChild(slideDiv);
+
+                const dot = document.createElement('button');
+                dot.classList.add('dot');
+                if (idx === 0) dot.classList.add('active');
+                dot.setAttribute('data-index', idx);
+                dot.addEventListener('click', () => goToSlide(idx));
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateSlidesAndDots(index) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            slides.forEach((slide, i) => {
+                if (i === index) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+            dots.forEach((dot, i) => {
+                if (i === index) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        }
+
+        function goToSlide(index) {
+            if (index < 0) index = images.length - 1;
+            if (index >= images.length) index = 0;
+            currentSlide = index;
+            updateSlidesAndDots(currentSlide);
+            resetAutoPlay();
+        }
+
+        function nextSlide() { goToSlide(currentSlide + 1); }
+        function prevSlide() { goToSlide(currentSlide - 1); }
+
+        function startAutoPlay() {
+            if (slideInterval) clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                nextSlide();
+            }, 5000);
+        }
+
+        function resetAutoPlay() {
+            if (slideInterval) clearInterval(slideInterval);
+            startAutoPlay();
+        }
+
+        // pause on hover hero
+        const heroSection = document.querySelector('.hero');
+        heroSection.addEventListener('mouseenter', () => {
+            if (slideInterval) clearInterval(slideInterval);
+        });
+        heroSection.addEventListener('mouseleave', startAutoPlay);
+
+        // event listeners for buttons
+        document.getElementById('prevSlideBtn').addEventListener('click', prevSlide);
+        document.getElementById('nextSlideBtn').addEventListener('click', nextSlide);
+
+        buildCarousel();
+        startAutoPlay();
+
+        // ----- Navbar scroll effect -----
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) navbar.classList.add('scrolled');
@@ -795,24 +1029,28 @@
         // Mobile menu
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
-        // smooth scroll
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElem = document.querySelector(targetId);
+                if (targetElem) {
+                    targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         });
+
+        // Buttons behaviour
         document.getElementById('exploreRoomsBtn').addEventListener('click', () => document.getElementById('rooms').scrollIntoView({ behavior: 'smooth' }));
-        document.getElementById('bookNowBtn').addEventListener('click', () => document.querySelector('.cta-section').scrollIntoView({ behavior: 'smooth' }));
-        document.getElementById('reserveNowBtn').addEventListener('click', () => alert("📞 Call +91 98765 43210 or visit our booking portal. Limited rooms!"));
+        document.getElementById('bookNowBtn').addEventListener('click', () => document.getElementById('book').scrollIntoView({ behavior: 'smooth' }));
+        document.getElementById('reserveNowBtn').addEventListener('click', () => alert("📞 Call us at +91 95141 35704 or visit our booking portal. Limited rooms!"));
         document.querySelectorAll('.btn-view').forEach(btn => btn.addEventListener('click', () => alert("✨ Experience luxury: Room includes all amenities + complimentary breakfast. Contact us for best rates.")));
 
         // Intersection Observer for scroll reveal
@@ -829,27 +1067,23 @@
 
         // Testimonial Slider
         const testimonialCards = document.querySelectorAll('.testimonial-card');
-        let currentIdx = 0;
+        let currentTestimonial = 0;
         function showTestimonial(index) {
             testimonialCards.forEach((card, i) => {
                 card.style.display = i === index ? 'block' : 'none';
             });
         }
-        document.getElementById('nextSlide').addEventListener('click', () => {
-            currentIdx = (currentIdx + 1) % testimonialCards.length;
-            showTestimonial(currentIdx);
+        document.getElementById('nextSlide')?.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+            showTestimonial(currentTestimonial);
         });
-        document.getElementById('prevSlide').addEventListener('click', () => {
-            currentIdx = (currentIdx - 1 + testimonialCards.length) % testimonialCards.length;
-            showTestimonial(currentIdx);
+        document.getElementById('prevSlide')?.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
+            showTestimonial(currentTestimonial);
         });
         showTestimonial(0);
 
-        lightbox.option({
-            'resizeDuration': 300,
-            'wrapAround': true,
-            'albumLabel': "Gallery %1 of %2"
-        });
+        lightbox.option({ 'resizeDuration': 300, 'wrapAround': true, 'albumLabel': "Gallery %1 of %2" });
     </script>
 </body>
 
