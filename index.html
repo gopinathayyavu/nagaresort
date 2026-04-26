@@ -338,9 +338,8 @@
             background: transparent;
             border: 1.5px solid #b8860b;
             padding: 10px 28px;
-            font-weight: 500;
+            font-weight: 700;
             border-radius: 40px;
-            color: #2f5d3a;
             transition: 0.3s;
             cursor: pointer;
         }
@@ -718,12 +717,12 @@
         <div class="logo">NAGA <span>RESORT</span></div>
         <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#rooms">Rooms</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#book">Book Now</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="book.html">Book Now</a></li>
         </ul>
     </nav>
 
@@ -768,12 +767,19 @@
     <section id="about" class="container hidden">
         <div class="about-grid">
             <div class="about-text">
-                <h3>From Pugal Holidays → Naga Resort</h3>
-                <p>Once known as Pugal Holidays & Pumo Resort, we have blossomed into <strong>Naga Resort</strong> — a
-                    sanctuary of serenity nestled in Kodaikanal's emerald hills. Inspired by the lush valleys and
-                    mist-laden mornings, every corner celebrates nature's elegance.</p>
-                <p>Our transformation honors authentic Tamil hospitality with contemporary luxury. Wake up to bird
-                    songs, breathe in eucalyptus-scented air, and let the Western Ghats heal your soul.</p>
+                <h3>Pugal Holidays → Now Managed by Naga Resort</h3>
+                <p>Originally established as <strong>Pugal Holidays</strong>, this serene retreat was previously
+                    operated by Pumo Resort
+                    and is now proudly managed by <strong>Naga Resort</strong> — a sanctuary of tranquility nestled in
+                    the emerald hills
+                    of Kodaikanal.
+
+                    Inspired by mist-laden mornings and lush valleys, every corner reflects nature’s quiet elegance.
+                    Under the care of Naga Resort, the property blends authentic Tamil hospitality with a touch of
+                    contemporary comfort.</p>
+
+                <p>Wake up to birdsong, breathe in eucalyptus-scented air, and let the Western Ghats gently restore
+                    your soul.</p>
             </div>
             <div class="about-img">
                 <img src="assets/img/resort-img-1.jpeg" alt="Kodaikanal valley view" loading="lazy">
@@ -938,11 +944,11 @@
     <script>
         // ----- IMAGE CAROUSEL for Hero -----
         const images = [
-            "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            "https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            "https://images.pexels.com/photos/1493403/pexels-photo-1493403.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            "https://images.pexels.com/photos/258192/pexels-photo-258192.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            "https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            "/assets/img/kodaikanal-1.png",
+            "/assets/img/kodaikanal-2.png",
+            "/assets/img/kodaikanal-3.png",
+            "/assets/img/kodaikanal-4.png",
+            "/assets/img/kodaikanal-5.png"
         ];
         let currentSlide = 0;
         let slideInterval;
