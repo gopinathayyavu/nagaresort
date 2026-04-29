@@ -35,88 +35,11 @@
         <p>Secure your peaceful escape in the hills of Kodaikanal</p>
     </section>
 
-    <section class="container booking-container">
-        <div class="booking-grid">
-            <!-- Booking Form -->
-            <div class="booking-form">
-                <h2>Your Details</h2>
-                <form id="bookingForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Full Name *</label>
-                            <input type="text" id="fullName" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email *</label>
-                            <input type="email" id="email" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Phone *</label>
-                            <input type="tel" id="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Number of Guests *</label>
-                            <input type="number" id="guests" min="1" max="6" value="2" required>
-                        </div>
-                    </div>
-
-                    <h3>Room Selection</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Room Type *</label>
-                            <select id="roomType">
-                                <option value="deluxe">Deluxe Room – ₹8,500 / night</option>
-                                <option value="suite">Suite Room – ₹14,500 / night</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <h3>Dates</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Check-in *</label>
-                            <input type="text" id="checkin" placeholder="Select date" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>Check-out *</label>
-                            <input type="text" id="checkout" placeholder="Select date" readonly>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Special Requests (optional)</label>
-                        <textarea rows="3" id="requests"
-                            placeholder="Any preferences like early check-in, extra bed, dietary needs..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-gold book-submit">Check Availability & Price</button>
-                </form>
-            </div>
-
-            <!-- Booking Summary (initially hidden) -->
-            <div class="booking-summary" id="bookingSummary" style="display: none;">
-                <h2>Your Reservation</h2>
-                <div class="summary-card">
-                    <p><strong>Room:</strong> <span id="summaryRoom"></span></p>
-                    <p><strong>Guests:</strong> <span id="summaryGuests"></span></p>
-                    <p><strong>Check-in:</strong> <span id="summaryCheckin"></span></p>
-                    <p><strong>Check-out:</strong> <span id="summaryCheckout"></span></p>
-                    <p><strong>Nights:</strong> <span id="summaryNights"></span></p>
-                    <hr>
-                    <p><strong>Room Total:</strong> <span id="summaryTotal"
-                            style="font-size:1.5rem; color:#b8860b;"></span></p>
-                    <button id="confirmBooking" class="btn-gold">Confirm Booking</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Extra amenities teaser -->
-    <div class="cta-section" style="margin-top:0;">
-        <h2>Included in Every Stay</h2>
-        <p>Complimentary breakfast | Free WiFi | 24/7 concierge | Access to bonfire nights</p>
+    <div class="cta-section hidden" id="book">
+        <h2>Book Your Stay at India's Preferred Hill Resort – Naga Resort Kodaikanal</h2>
+        <p style="margin:1rem 0; color:#5b6e4a;">Luxury wooden cottages & premium suites – Reserve now for exclusive offers. Experience the best resort in Kodaikanal (formerly Pugal Holidays).</p>
+        <a href="https://wa.me/+919514135704" target="_blank"><button class="btn-gold" id="reserveNowBtn">Reserve Now via WhatsApp</button></a>
+        <p style="margin-top: 1rem;">📞 Call Nagaresort: +91 95141 35704 | +91 94433 69731</p>
     </div>
 
     <footer id="contact">
