@@ -22,7 +22,8 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Naga Resort – Best Resort in Kodaikanal & Pugal Holidays">
-    <meta name="twitter:description" content="Experience the best resort in Kodaikanal with wooden suites and authentic Tamil hospitality. Book direct at Nagaresort.">
+    <meta name="twitter:description"
+        content="Experience the best resort in Kodaikanal with wooden suites and authentic Tamil hospitality. Book direct at Nagaresort.">
     <title>Naga Resort Kodaikanal | Best Resort in Kodaikanal | Pugal Holidays – Luxury Hill Stay</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <!-- Google Fonts (unchanged) -->
@@ -36,7 +37,7 @@
     <!-- Existing CSS (completely unchanged) -->
     <link rel="stylesheet" href="style.css">
     <!-- Additional internal style only from original, we keep exactly as provided but we must not add new CSS -->
-    
+
 
     <!-- Enhanced JSON-LD Structured Data for Best Resort in Kodaikanal -->
     <script type="application/ld+json">
@@ -136,13 +137,22 @@
         <div class="about-grid">
             <div class="about-text">
                 <h3>Naga Resort – The Finest Resort in Kodaikanal (Formerly Pugal Holidays)</h3>
-                <p>Originally established as <strong>Pugal Holidays</strong>, this serene retreat was previously operated by Pumo Resort and is now proudly managed by <strong>Naga Resort</strong> — widely recognized as the <strong>best resort in Kodaikanal</strong>. Nestled in emerald hills, <strong>Nagaresort</strong> offers an unmatched blend of tranquility and luxury.</p>
-                <p>Inspired by mist-laden mornings and lush valleys, every corner reflects nature's quiet elegance. Under the care of Naga Resort, the property blends authentic Tamil hospitality with contemporary comfort. Whether you search for <strong>"best resort in Kodaikanal"</strong> or <strong>"Pugal Holidays"</strong>, you'll discover why we are the top-rated <strong>luxury resort in Kodaikanal</strong>.</p>
-                <p>Wake up to birdsong, breathe in eucalyptus-scented air, and let the Western Ghats gently restore your soul. Naga Resort Kodaikanal is your ultimate destination for a premium hill station escape.</p>
+                <p>Originally established as <strong>Pugal Holidays</strong>, this serene retreat was previously
+                    operated by Pumo Resort and is now proudly managed by <strong>Naga Resort</strong> — widely
+                    recognized as the <strong>best resort in Kodaikanal</strong>. Nestled in emerald hills,
+                    <strong>Nagaresort</strong> offers an unmatched blend of tranquility and luxury.</p>
+                <p>Inspired by mist-laden mornings and lush valleys, every corner reflects nature's quiet elegance.
+                    Under the care of Naga Resort, the property blends authentic Tamil hospitality with contemporary
+                    comfort. Whether you search for <strong>"best resort in Kodaikanal"</strong> or <strong>"Pugal
+                        Holidays"</strong>, you'll discover why we are the top-rated <strong>luxury resort in
+                        Kodaikanal</strong>.</p>
+                <p>Wake up to birdsong, breathe in eucalyptus-scented air, and let the Western Ghats gently restore your
+                    soul. Naga Resort Kodaikanal is your ultimate destination for a premium hill station escape.</p>
                 <p><strong>#Nagaresort #BestResortInKodaikanal #PugalHolidays</strong></p>
             </div>
             <div class="about-img">
-                <img src="assets/img/resort-img-1.jpeg" alt="Best resort in Kodaikanal - Naga Resort valley view" loading="lazy">
+                <img src="assets/img/resort-img-1.jpeg" alt="Best resort in Kodaikanal - Naga Resort valley view"
+                    loading="lazy">
             </div>
         </div>
     </section>
@@ -150,32 +160,7 @@
     <!-- Rooms Section with keyword-rich titles -->
     <section id="rooms" class="container hidden">
         <h2 class="section-title">Luxury Stays at Kodaikanal's Best Resort – Naga Resort</h2>
-        <div class="rooms-grid">
-            <div class="room-card">
-                <img src="https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Deluxe Room at Naga Resort best resort in Kodaikanal" loading="lazy">
-                <div class="room-info">
-                    <h3>Deluxe Rooms – Top Rated</h3>
-                    <div class="price">₹4,500<span style="font-size:1rem;"> / night</span></div>
-                    <a href="rooms.html" target="_blank"><button class="btn-view">View Details</button></a>
-                </div>
-            </div>
-            <div class="room-card">
-                <img src="assets/img/wooden.jpg" alt="Wooden Rooms Nagaresort Kodaikanal luxury stay" loading="lazy">
-                <div class="room-info">
-                    <h3>Signature Wooden Rooms</h3>
-                    <div class="price">₹6,500<span style="font-size:1rem;"> / night</span></div>
-                    <a href="rooms.html" target="_blank"><button class="btn-view">View Details</button></a>
-                </div>
-            </div>
-            <div class="room-card">
-                <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Suite Room best resort in Kodaikanal Naga Resort" loading="lazy">
-                <div class="room-info">
-                    <h3>Premium Suite Rooms – Panoramic View</h3>
-                    <div class="price">₹14,500<span style="font-size:1rem;"> / night</span></div>
-                    <a href="rooms.html" target="_blank"><button class="btn-view">View Details</button></a>
-                </div>
-            </div>
-        </div>
+        <div class="rooms-grid" id="roomsContainer"></div>
     </section>
 
     <!-- Amenities Section -->
@@ -204,12 +189,23 @@
     <section id="gallery" class="container hidden">
         <h2 class="section-title">Gallery – Best Resort in Kodaikanal (Nagaresort & Pugal Holidays)</h2>
         <div class="gallery-masonry">
-            <a href="assets/img/resort-1.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img src="assets/img/resort-1.jpeg" alt="Naga Resort exterior - best resort in Kodaikanal" loading="lazy"></a>
-            <a href="assets/img/resort-2.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img src="assets/img/resort-2.jpeg" alt="Kodaikanal lake view from Nagaresort" loading="lazy"></a>
-            <a href="assets/img/resort-3.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img src="assets/img/resort-3.jpeg" alt="Misty forest path near best resort in Kodaikanal" loading="lazy"></a>
-            <a href="assets/img/resort-4.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img src="assets/img/resort-4.jpeg" alt="Luxury wooden cottage Naga Resort Kodaikanal" loading="lazy"></a>
-            <a href="assets/img/resort-5.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img src="assets/img/resort-5.jpeg" alt="Bonfire night at Nagaresort best resort Kodaikanal" loading="lazy"></a>
-            <a href="assets/img/resort-6.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img src="assets/img/resort-6.jpeg" alt="Sunset view from Pugal Holidays now Naga Resort" loading="lazy"></a>
+            <a href="assets/img/resort-1.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="assets/img/resort-1.jpeg" alt="Naga Resort exterior - best resort in Kodaikanal"
+                    loading="lazy"></a>
+            <a href="assets/img/resort-2.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="assets/img/resort-2.jpeg" alt="Kodaikanal lake view from Nagaresort" loading="lazy"></a>
+            <a href="assets/img/resort-3.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="assets/img/resort-3.jpeg" alt="Misty forest path near best resort in Kodaikanal"
+                    loading="lazy"></a>
+            <a href="assets/img/resort-4.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="assets/img/resort-4.jpeg" alt="Luxury wooden cottage Naga Resort Kodaikanal"
+                    loading="lazy"></a>
+            <a href="assets/img/resort-5.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="assets/img/resort-5.jpeg" alt="Bonfire night at Nagaresort best resort Kodaikanal"
+                    loading="lazy"></a>
+            <a href="assets/img/resort-6.jpeg" data-lightbox="resort-gallery" class="gallery-item"><img
+                    src="assets/img/resort-6.jpeg" alt="Sunset view from Pugal Holidays now Naga Resort"
+                    loading="lazy"></a>
         </div>
     </section>
 
@@ -218,24 +214,29 @@
         <h2 class="section-title" style="color:#2f5d3a;">Explore Kodaikanal – Best Attractions Near Naga Resort</h2>
         <div class="rooms-grid">
             <div class="room-card">
-                <img src="assets/img/kodaikanal-lake.jpg" alt="Kodaikanal Lake near Naga Resort best resort in Kodaikanal" loading="lazy">
+                <img src="assets/img/kodaikanal-lake.jpg"
+                    alt="Kodaikanal Lake near Naga Resort best resort in Kodaikanal" loading="lazy">
                 <div class="room-info">
                     <h3>Kodaikanal Lake</h3>
-                    <a href="https://maps.app.goo.gl/K8Lf9BPdADHxJJxTA" target="_blank"><button class="btn-view">View Location</button></a>
+                    <a href="https://maps.app.goo.gl/K8Lf9BPdADHxJJxTA" target="_blank"><button class="btn-view">View
+                            Location</button></a>
                 </div>
             </div>
             <div class="room-card">
                 <img src="assets/img/pillar-rocks.jpg" alt="Pillar Rocks near Nagaresort Kodaikanal" loading="lazy">
                 <div class="room-info">
                     <h3>Pillar Rocks</h3>
-                    <a href="https://maps.app.goo.gl/74YYCCS6x6RxDb9WA" target="_blank"><button class="btn-view">View Location</button></a>
+                    <a href="https://maps.app.goo.gl/74YYCCS6x6RxDb9WA" target="_blank"><button class="btn-view">View
+                            Location</button></a>
                 </div>
             </div>
             <div class="room-card">
-                <img src="assets/img/silver-cascade-falls.jpg" alt="Silver Cascade Falls near best resort in Kodaikanal" loading="lazy">
+                <img src="assets/img/silver-cascade-falls.jpg" alt="Silver Cascade Falls near best resort in Kodaikanal"
+                    loading="lazy">
                 <div class="room-info">
                     <h3>Silver Cascade Falls</h3>
-                    <a href="https://maps.app.goo.gl/Zdt9KiJ5MQHEHdwYA" target="_blank"><button class="btn-view">View Location</button></a>
+                    <a href="https://maps.app.goo.gl/Zdt9KiJ5MQHEHdwYA" target="_blank"><button class="btn-view">View
+                            Location</button></a>
                 </div>
             </div>
         </div>
@@ -246,18 +247,25 @@
         <h2 class="section-title">Guest Reviews: Why Naga Resort is the Best Resort in Kodaikanal</h2>
         <div class="testimonial-slider" id="testimonialSlider">
             <div class="testimonial-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="testimonial-text">"The transformation is magical. Naga Resort gave us the most peaceful honeymoon. Luxury blended with nature — absolute bliss. Hands down the best resort in Kodaikanal!"</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testimonial-text">"The transformation is magical. Naga Resort gave us the most peaceful
+                    honeymoon. Luxury blended with nature — absolute bliss. Hands down the best resort in Kodaikanal!"
+                </p>
                 <h4>— Riya & Aditya</h4>
             </div>
             <div class="testimonial-card" style="display:none;">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                <p class="testimonial-text">"Bonfire nights and misty mornings are surreal. The staff is incredibly warm. Best getaway from Chennai. Nagaresort exceeded all expectations!"</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p class="testimonial-text">"Bonfire nights and misty mornings are surreal. The staff is incredibly
+                    warm. Best getaway from Chennai. Nagaresort exceeded all expectations!"</p>
                 <h4>— Karthik Family</h4>
             </div>
             <div class="testimonial-card" style="display:none;">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="testimonial-text">"Premium rooms, delicious food and view that steals your heart. Highly recommend the Suite room – truly the best resort in Kodaikanal for couples."</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testimonial-text">"Premium rooms, delicious food and view that steals your heart. Highly
+                    recommend the Suite room – truly the best resort in Kodaikanal for couples."</p>
                 <h4>— Sneha & Vikram</h4>
             </div>
             <div class="slider-controls">
@@ -270,8 +278,10 @@
     <!-- CTA Section - keyword rich -->
     <div class="cta-section hidden" id="book">
         <h2>Book Your Stay at India's Preferred Hill Resort – Naga Resort Kodaikanal</h2>
-        <p style="margin:1rem 0; color:#5b6e4a;">Luxury wooden cottages & premium suites – Reserve now for exclusive offers. Experience the best resort in Kodaikanal (formerly Pugal Holidays).</p>
-        <a href="https://wa.me/+919514135704" target="_blank"><button class="btn-gold" id="reserveNowBtn">Reserve Now via WhatsApp</button></a>
+        <p style="margin:1rem 0; color:#5b6e4a;">Luxury wooden cottages & premium suites – Reserve now for exclusive
+            offers. Experience the best resort in Kodaikanal (formerly Pugal Holidays).</p>
+        <a href="https://wa.me/+919514135704" target="_blank"><button class="btn-gold" id="reserveNowBtn">Reserve Now
+                via WhatsApp</button></a>
         <p style="margin-top: 1rem;">📞 Call Nagaresort: +91 95141 35704 | +91 94433 69731</p>
     </div>
 
@@ -286,11 +296,14 @@
             </div>
             <div class="footer-col">
                 <h4>Contact Nagaresort</h4>
-                <p><i class="fas fa-phone-alt"></i> +91 95141 35704<br><i class="fas fa-phone-alt"></i> +91 94433 69731<br><i class="fas fa-phone-alt"></i> +91 98409 62645<br><i class="fas fa-envelope"></i> nagaresorts@gmail.com</p>
+                <p><i class="fas fa-phone-alt"></i> +91 95141 35704<br><i class="fas fa-phone-alt"></i> +91 94433
+                    69731<br><i class="fas fa-phone-alt"></i> +91 98409 62645<br><i class="fas fa-envelope"></i>
+                    nagaresorts@gmail.com</p>
             </div>
             <div class="footer-col">
                 <h4>Follow Us</h4>
-                <div class="social-icons"><i class="fab fa-instagram"></i><i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i></div>
+                <div class="social-icons"><i class="fab fa-instagram"></i><i class="fab fa-facebook-f"></i><i
+                        class="fab fa-twitter"></i></div>
                 <div>
                     <br>
                     <iframe
@@ -300,7 +313,8 @@
                 </div>
             </div>
         </div>
-        <div class="copyright">© 2026 Naga Resort — The Best Resort in Kodaikanal | Luxury Redefined | Formerly Pugal Holidays | Nagaresort – Your Gateway to Serenity</div>
+        <div class="copyright">© 2026 Naga Resort — The Best Resort in Kodaikanal | Luxury Redefined | Formerly Pugal
+            Holidays | Nagaresort – Your Gateway to Serenity</div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
@@ -439,6 +453,13 @@
             albumLabel: "Gallery %1 of %2"
         });
     </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script src="assets/js/firebase-config.js"></script>
+
+    <script src="assets/js/load-rooms.js"></script>
 </body>
 
 </html>

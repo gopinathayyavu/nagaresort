@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Naga Resort Admin Panel</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial,sans-serif;
+            background:#f5f5f5;
+        }
+
+        .topbar{
+            background:#111;
+            color:white;
+            padding:15px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .container{
+            padding:30px;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            margin-bottom:30px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        input, textarea{
+            width:100%;
+            padding:12px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            box-sizing:border-box;
+        }
+
+        button{
+            padding:12px 20px;
+            border:none;
+            background:#d4af37;
+            border-radius:6px;
+            cursor:pointer;
+            color:black;
+            font-weight:bold;
+        }
+
+        .room-item,
+        .message-item{
+            border:1px solid #ddd;
+            padding:15px;
+            margin-bottom:15px;
+            border-radius:8px;
+            background:#fafafa;
+        }
+
+        h2{
+            margin-top:0;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="topbar">
+
+        <h2>Naga Resort Admin Panel</h2>
+
+        <button id="logoutBtn">Logout</button>
+
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>Create / Update Room</h2>
+
+            <input type="text" id="roomName" placeholder="Room Name">
+
+            <input type="number" id="roomPrice" placeholder="Room Price">
+
+            <input type="number" id="totalRooms" placeholder="Total Rooms">
+
+            <input type="number" id="availableRooms" placeholder="Available Rooms">
+
+            <input type="text" id="roomImage" placeholder="Room Image URL">
+
+            <button id="saveRoomBtn">Save Room</button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>All Rooms</h2>
+
+            <div id="roomsContainer"></div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Contact Messages</h2>
+
+            <div id="messagesContainer"></div>
+
+        </div>
+
+    </div>
+
+    <!-- Firebase CDN -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <!-- Your JS -->
+
+    <script src="assets/js/firebase-config.js"></script>
+
+    <script src="assets/js/admin.js"></script>
+
+</body>
+
+</html>
